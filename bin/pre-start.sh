@@ -22,10 +22,10 @@ export XDG_RUNTIME_DIR=/run/user/$UID
 export DOCKER_HOST=unix:///run/user/1001/docker.sock
 
 mkdir -p /home/github-runner/dind-etc
-docker run --rm --name dind-prepare -exec docker:25.0.5-dind-rootless cat /etc/subuid > /home/github-runner/dind-etc/subuid
-docker run --rm --name dind-prepare -exec docker:25.0.5-dind-rootless cat /etc/subgid > /home/github-runner/dind-etc/subgid
-docker run --rm --name dind-prepare -exec docker:25.0.5-dind-rootless cat /etc/group > /home/github-runner/dind-etc/group
-docker run --rm --name dind-prepare -exec docker:25.0.5-dind-rootless cat /etc/passwd > /home/github-runner/dind-etc/passwd
+docker run --rm --name dind-prepare -exec docker:27.0.2-dind-rootless cat /etc/subuid > /home/github-runner/dind-etc/subuid
+docker run --rm --name dind-prepare -exec docker:27.0.2-dind-rootless cat /etc/subgid > /home/github-runner/dind-etc/subgid
+docker run --rm --name dind-prepare -exec docker:27.0.2-dind-rootless cat /etc/group > /home/github-runner/dind-etc/group
+docker run --rm --name dind-prepare -exec docker:27.0.2-dind-rootless cat /etc/passwd > /home/github-runner/dind-etc/passwd
 
 echo 'runner:x:1001:1001:runner:/home/runner:/bin/bash' >> /home/github-runner/dind-etc/passwd
 echo 'runner:x:1001:' >> /home/github-runner/dind-etc/group
