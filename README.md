@@ -16,8 +16,8 @@ export XDG_RUNTIME_DIR=/run/user/$UID
 dockerd-rootless-setuptool.sh install
 ```
 
-Create `/home/github-runner/bin` folder and copy files from bin.
-Create `/home/github-runner/runner.env` file with your settings. Scripts are working only with app_id and app_private_key.
+Create `/home/github-runner/bin` folder and copy files from bin.  
+Create `/home/github-runner/runner.env` file with your settings. Scripts are working only with `app_id` and `app_private_key`.  
 
 Move `runner.service` to `/home/github-runner/.config/systemd/user` and enable the service:
 
