@@ -1,0 +1,15 @@
+[Unit]
+Description=GitHub Runner
+After=docker.service
+Requires=docker.service
+
+[Service]
+WorkingDirectory=/home/github-runner
+TimeoutStartSec=0
+Restart=always
+ExecStartPre=-/home/github-runner/bin/pre-start.sh
+ExecStart=/home/github-runner/bin/start-runner.sh
+ExecStopPost=/home/github-runner/bin/post-stop.sh
+
+[Install]
+WantedBy=default.target
