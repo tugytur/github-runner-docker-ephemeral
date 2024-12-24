@@ -26,8 +26,8 @@ if [[ -z "${APP_ID}" ]]; then
     exit 1
 fi
 
-if [[ -z "${REPO_URL}" ]]; then
-    echo "{REPO_URL is not set"
+if [[ -z "${REPO_URL}" && "${RUNNER_SCOPE}" == "repo" ]]; then
+    echo "REPO_URL is not set, and RUNNER_SCOPE is 'repo'"
     exit 1
 fi
 
@@ -86,7 +86,7 @@ base64url() {
 }
 
 rs256_sign() {
-    openssl dgst -binary -sha256 -sign /home/github-runner/runner-private-key.pem
+    openssl dgst -binary -sha256 -sign /home/github-runner/runner-decrypted-private-key.pem
 }
 
 request_access_token() {

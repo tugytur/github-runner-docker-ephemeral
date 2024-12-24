@@ -14,7 +14,9 @@ echo "RUNNER_TOKEN=$(echo "${_TOKEN}" | jq -r .token)" >> /home/github-runner/ru
 echo "RUNNER_NAME=$(hostname)" >> /home/github-runner/runner-decrypted.env
 # remove the APP_ID from the runner-decrypted.env
 sed -i '/APP_ID/d' /home/github-runner/runner-decrypted.env
+sed -i '/APP_LOGIN/d' /home/github-runner/runner-decrypted.env
 unset APP_ID
+unset APP_LOGIN
 
 # prepare docker in docker environment before starting the runner
 
