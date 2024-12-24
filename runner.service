@@ -4,6 +4,7 @@ After=docker.service
 Requires=docker.service
 
 [Service]
+Environment=PATH=/home/github-runner/bin:/sbin:/usr/sbin:/home/github-runner/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
 WorkingDirectory=/home/github-runner
 TimeoutStartSec=0
 Restart=always
